@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from huzhugou_po.config.pathconfig import MAIN_SHOPPING_FLOW_DATA_PATH
 from huzhugou_po.page.base_page import BasePage
 from huzhugou_po.page.main_shopping_flow.main_shopping_flow_page import MainShoppingFlowPage
-from huzhugou_po.page.my.my_page import MyPage
+from huzhugou_po.page.my.add_address_page import AddAddressPage
 
 
 class HuZhuGouPage(BasePage):
@@ -77,5 +77,5 @@ class HuZhuGouPage(BasePage):
         return MainShoppingFlowPage(self.driver)
 
     # 跳转到我的页面
-    def goto_my(self):
-        return MyPage(self.driver)
+    def goto_my_add_address(self):
+        return AddAddressPage(self.driver)
