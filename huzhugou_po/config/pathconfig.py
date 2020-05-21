@@ -9,4 +9,4 @@ MAIN_SHOPPING_FLOW_DATA_PATH = os.path.join(CONFIG_DIR, "main_shopping_flow_data
 
 # 获取我的->收货地址->新增收货地址测试数据文件所在路径
 TESTCASE_DATA_DIR = os.path.join(BASE_DIR, "testcase/data")
-MY_ADDRESS_DATA_PATH = os.path.join(TESTCASE_DATA_DIR, "my_address_data.yaml")
+ADD_ADDRESS_DATA_PATH = os.path.join(TESTCASE_DATA_DIR, "add_address_data.yaml")
