@@ -1,7 +1,7 @@
 '''
 前置函数：
-1、init_driver：只实例化webdriver
-2、init_driveranddopre：第一个测试的测试用例需要调用此函数,后面的操作不要在会话前重置应用状态
+1、init_driver：只实例化webdriver onReset = True时使用
+2、init_driveranddopre：实例化webdriver、点击条款中的同意以及验证码登录 onReset = False时使用
 '''
 import pytest
 from selenium.webdriver.common.by import By
