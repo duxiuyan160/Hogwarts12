@@ -14,7 +14,6 @@ from appium import webdriver
 
 
 class ToBePaid(BasePage):
-    _btn_my = (By.ID, "com.tojoy.huzhugou:id/navigation_me")  # 底部导航栏我的按钮
     _number_tobepaid = (By.ID, "com.tojoy.huzhugou:id/tv_num_unpay")  # 待付款的共几条数量
     _btn_tobepaid = ('new UiSelector().className("android.widget.TextView").textContains("待付款")')  # 待付款按钮
     _btn_cancle = (By.CSS_SELECTOR, ".cancel-order>.linkBtn")  # 取消订单按钮(我的订单列表中的第一条)
@@ -25,8 +24,6 @@ class ToBePaid(BasePage):
 
     # 取消订单
     def cancle_order(self):
-        self.find(*self._btn_my).click()  # 点击底部导航栏的我的按钮
-
         try:
             old_number_tobepaid = self.find(*self._number_tobepaid).text  # 记录一下取消付款之前，待付款右上角中有几条款操作的记录
         except:

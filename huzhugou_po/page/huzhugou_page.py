@@ -11,6 +11,7 @@ from huzhugou_po.config.pathconfig import MAIN_SHOPPING_FLOW_DATA_PATH
 from huzhugou_po.page.base_page import BasePage
 from huzhugou_po.page.main_shopping_flow.main_shopping_flow_page import MainShoppingFlowPage
 from huzhugou_po.page.my.add_address_page import AddAddressPage
+from huzhugou_po.page.my.tobepaid import ToBePaid
 
 
 class HuZhuGouPage(BasePage):
@@ -25,6 +26,7 @@ class HuZhuGouPage(BasePage):
     _getcodetip = ('new UiSelector().className("android.widget.TextView").textContains("【互助购】验证码")')  # 获取桌面通知消息里的验证码信息
     _btn_login = (By.ID, "com.tojoy.huzhugou:id/btn_login")  # 登录按钮
 
+
     def first(self):
         # 设置capabilities
         caps = {}
@@ -35,6 +37,7 @@ class HuZhuGouPage(BasePage):
         caps["automationName"] = "UiAutomator2"
         caps["chromedriverExecutable"] = '/Users/duxiuyan/projects/chromedriver/2.43/chromedriver'
         caps["autoGrantPermissions"] = True
+        caps["noReset"] = True
 
         self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", caps)
         self.driver.implicitly_wait(15)
@@ -76,6 +79,12 @@ class HuZhuGouPage(BasePage):
     def goto_mainshoppingflow(self):
         return MainShoppingFlowPage(self.driver)
 
-    # 跳转到我的页面
+    # 跳转到我的-收货地址页面
     def goto_my_add_address(self):
+        self.find(*self._btn_my).click()
         return AddAddressPage(self.driver)
+
+    # 跳转到我的-待付款页面
+    def goto_my_tobepaid(self):
+        self.find(*self._btn_my).click()
+        return ToBePaid(self.driver)
