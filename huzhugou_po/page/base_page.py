@@ -37,6 +37,13 @@ class BasePage:
             expected_conditions.visibility_of_element_located((MobileBy.ANDROID_UIAUTOMATOR, locator)))
         return self.driver.find_element(MobileBy.ANDROID_UIAUTOMATOR, locator)
 
+    # find_element_by_ACCESSIBILITY_ID查找元素
+    def find_element_by_accessibility_id(self, locator):
+        WebDriverWait(self.driver, 40).until(
+            expected_conditions.visibility_of_element_located((MobileBy.ACCESSIBILITY_ID, locator)))
+        return self.driver.find_element(MobileBy.ACCESSIBILITY_ID, locator)
+
+
     # 读取yaml文件方法
     def read_yamldata(self, filename, section, option1):
         with open(filename, encoding="utf8") as f:
