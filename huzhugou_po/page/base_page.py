@@ -23,23 +23,23 @@ class BasePage:
 
     # 按普通方式查找单个元素
     def find(self, by, value):
-        WebDriverWait(self.driver, 60).until(expected_conditions.visibility_of_element_located((by, value)))
+        WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((by, value)))
         return self.driver.find_element(by, value)
 
     # 按普通方式查找多个元素
     def finds(self, by, value):
-        WebDriverWait(self.driver, 60).until(expected_conditions.visibility_of_element_located((by, value)))
+        WebDriverWait(self.driver, 20).until(expected_conditions.visibility_of_element_located((by, value)))
         return self.driver.find_elements(by, value)
 
     # find_element_by_android_uiautomator查找元素
     def find_element_by_android_uiautomator(self, locator):
-        WebDriverWait(self.driver, 40).until(
+        WebDriverWait(self.driver, 20).until(
             expected_conditions.visibility_of_element_located((MobileBy.ANDROID_UIAUTOMATOR, locator)))
         return self.driver.find_element(MobileBy.ANDROID_UIAUTOMATOR, locator)
 
     # find_element_by_ACCESSIBILITY_ID查找元素
     def find_element_by_accessibility_id(self, locator):
-        WebDriverWait(self.driver, 40).until(
+        WebDriverWait(self.driver, 20).until(
             expected_conditions.visibility_of_element_located((MobileBy.ACCESSIBILITY_ID, locator)))
         return self.driver.find_element(MobileBy.ACCESSIBILITY_ID, locator)
 
@@ -56,3 +56,7 @@ class BasePage:
                                                         'new UiSelector().scrollable(true).instance(0))'
                                                         '.scrollIntoView('
                                                         'new UiSelector().text('+'\"'+str(value)+'\"'+').instance(0));').click()
+
+    # 获取toast控件
+    def toast_locator(cls):
+        return (By.XPATH,"//*[@class='android.widget.Toast']")
