@@ -31,8 +31,8 @@ def handle_black(func):
                 elements = instance.finds(*black)
                 if len(elements) > 0:
                     elements[0].click()
-                    break
+                    return wrapper(*args, **kwargs)
             # 处理完黑名单后，再次找原来的元素
-            return wrapper(*args, **kwargs)
+            raise e
 
     return wrapper

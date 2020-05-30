@@ -27,5 +27,6 @@ class SearchPage(BasePage):
                          "//*[@resource-id='com.xueqiu.android:id/stockCode' and @text='" + stocktype + "']/../../..//*[@resource-id='com.xueqiu.android:id/followed_btn']")
 
         self.click(self.find(*_btn_follow))  # 点击加自选按钮
+        self.click(self.find(*self._btn_next))
         _btn_follow_text = self.find(*_btn_followed).text  # 取到已添加按钮的text
         return _btn_follow_text
